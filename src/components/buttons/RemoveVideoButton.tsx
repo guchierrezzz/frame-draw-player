@@ -2,9 +2,9 @@ import { IRemoveVideoButtonProps } from "../../interface";
 
 export const RemoveVideoButton = ({
   inputRef,
+  setVideoUrl,
   setIsFastForward,
   setIsPlaying,
-  setVideoUrl,
 }: IRemoveVideoButtonProps) => {
   return (
     <button
@@ -16,7 +16,7 @@ export const RemoveVideoButton = ({
           inputRef.current.value = "";
         }
       }}
-      className="btn uppercase"
+      className="uppercase btn"
     >
       Remover video
     </button>

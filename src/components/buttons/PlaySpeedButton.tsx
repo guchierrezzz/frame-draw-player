@@ -1,7 +1,4 @@
-import {
-  TiMediaFastForwardOutline,
-  TiMediaRewindOutline,
-} from "react-icons/ti";
+import { TiMediaFastForwardOutline } from "react-icons/ti";
 import { IPlaySpeedButtonProps } from "../../interface";
 
 export const PlaySpeedButton = ({
@@ -13,11 +10,7 @@ export const PlaySpeedButton = ({
       onClick={func}
       className={`btn ${playSpeedState ? "btn-secondary" : ""} uppercase`}
     >
-      {playSpeedState ? (
-        <TiMediaRewindOutline className="text-2xl" />
-      ) : (
-        <TiMediaFastForwardOutline className="text-2xl" />
-      )}
+      <TiMediaFastForwardOutline className="text-2xl" />
     </button>
   );
 };
