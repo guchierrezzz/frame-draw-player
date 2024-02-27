@@ -13,7 +13,8 @@ export const MainContextProvider = ({ children }: IMainContextProps) => {
   const [isFastForward, setIsFastForward] = useState(false);
   const [width, setWidth] = useState<number>(1000);
   const [height, setHeight] = useState<number>(1000);
-  const [color, setColor] = useState<string>("#000000");
+  const [color, setColor] = useState<string>("#EE4B2B");
+  const [tempVertices, setTempVertices] = useState<ICoordinate[] | []>([]);
   const [vertices, setVertices] = useState<ICoordinate[] | []>([]);
 
   const inputRef = useRef<HTMLInputElement>(null);
@@ -44,38 +45,13 @@ export const MainContextProvider = ({ children }: IMainContextProps) => {
     data.push({ x: point2.x, y: point2.y });
   };
 
-  const generateVerticesCoordinates = (
-    e: React.ChangeEvent<HTMLFormElement>
-  ): ICoordinate[] => {
-    const inputValue = (e.target.elements[0] as HTMLInputElement).value;
-    const values = inputValue.split(",");
-    if (values.length <= 6 && values.length % 2 != 0) {
-      alert("Número de coordenadas inválido");
-    }
-
-    let vertices = [];
-
-    for (let i = 0; i < values.length; i += 2) {
-      vertices.push({
-        x: Number(values[i]),
-        y: Number(values[i + 1]),
-      });
-    }
-
-    vertices.push({ x: Number(values[0]), y: Number(values[1]) });
-
-    setVertices(vertices);
-
-    return vertices;
-  };
-
   const connectVertices = (vertices: ICoordinate[]): void => {
     const data = {
       height: videoRef.current?.videoHeight,
       lines: [
         {
           brushColor: colorInputRef.current?.value,
-          brushRadius: 10,
+          brushRadius: 5,
           points: [],
         },
       ],
@@ -131,8 +107,9 @@ export const MainContextProvider = ({ children }: IMainContextProps) => {
           videoUrl,
           width,
           connectVertices,
-          generateVerticesCoordinates,
           interpolateVertices,
+          tempVertices,
+          setTempVertices,
         }}
       >
         {children}

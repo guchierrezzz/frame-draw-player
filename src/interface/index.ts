@@ -1,4 +1,5 @@
 import { ReactNode } from "react";
+import { FieldErrors, UseFormRegister } from "react-hook-form";
 import CanvasDraw from "react-canvas-draw";
 
 export interface ICoordinate {
@@ -36,17 +37,26 @@ export interface IMainContext {
   setColor: React.Dispatch<React.SetStateAction<string>>;
   vertices: [] | ICoordinate[];
   setVertices: React.Dispatch<React.SetStateAction<[] | ICoordinate[]>>;
+  tempVertices: [] | ICoordinate[];
+  setTempVertices: React.Dispatch<React.SetStateAction<ICoordinate[] | []>>;
   interpolateVertices: (
     point1: ICoordinate,
     point2: ICoordinate,
     data: Array<ICoordinate>
   ) => void;
-  generateVerticesCoordinates: (
-    e: React.ChangeEvent<HTMLFormElement>
-  ) => ICoordinate[];
   connectVertices: (vertices: ICoordinate[]) => void;
 }
 
 export interface IMainContextProps {
   children: ReactNode;
+}
+
+type InputName = "x" | "y";
+
+export interface IFormTextInputProps {
+  register: UseFormRegister<any>;
+  errors: FieldErrors<any>;
+  inputName: InputName;
+  inputType: string;
+  inputPlaceholder: string;
 }

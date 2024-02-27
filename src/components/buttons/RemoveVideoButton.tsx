@@ -2,8 +2,14 @@ import { useContext } from "react";
 import { MainContext } from "../../provider/MainContext";
 
 export const RemoveVideoButton = () => {
-  const { isDrawing, setVideoUrl, setIsFastForward, setIsPlaying, inputRef } =
-    useContext(MainContext);
+  const {
+    isDrawing,
+    setVideoUrl,
+    setIsFastForward,
+    setIsPlaying,
+    inputRef,
+    setVertices,
+  } = useContext(MainContext);
   return (
     <button
       disabled={isDrawing}
@@ -11,6 +17,8 @@ export const RemoveVideoButton = () => {
         setVideoUrl(null);
         setIsFastForward(false);
         setIsPlaying(false);
+        setVertices([]);
+
         if (inputRef.current) {
           inputRef.current.value = "";
         }

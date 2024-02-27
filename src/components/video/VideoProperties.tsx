@@ -11,7 +11,11 @@ export const VideoProperties = () => {
       </p>
       {vertices.length > 1 && (
         <p>
-          Coordenadas: {vertices.map(({ x, y }) => `(${x},${y})`).join(", ")}
+          Coordenadas:{" "}
+          {vertices
+            .slice(0, -1)
+            .map(({ x, y }) => `(${x},${y})`)
+            .join(", ")}
         </p>
       )}
     </div>
