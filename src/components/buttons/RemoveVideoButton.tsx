@@ -1,13 +1,12 @@
-import { IRemoveVideoButtonProps } from "../../interface";
+import { useContext } from "react";
+import { MainContext } from "../../provider/MainContext";
 
-export const RemoveVideoButton = ({
-  inputRef,
-  setVideoUrl,
-  setIsFastForward,
-  setIsPlaying,
-}: IRemoveVideoButtonProps) => {
+export const RemoveVideoButton = () => {
+  const { isDrawing, setVideoUrl, setIsFastForward, setIsPlaying, inputRef } =
+    useContext(MainContext);
   return (
     <button
+      disabled={isDrawing}
       onClick={() => {
         setVideoUrl(null);
         setIsFastForward(false);

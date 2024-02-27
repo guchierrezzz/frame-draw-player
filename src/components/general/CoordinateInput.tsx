@@ -3,6 +3,7 @@ import { ICoordinateInputProps } from "../../interface";
 export const CoordinateInput = ({
   connectVertices,
   generateVerticesCoordinates,
+  isDrawing,
 }: ICoordinateInputProps) => {
   return (
     <>
@@ -21,7 +22,9 @@ export const CoordinateInput = ({
           className="w-full input input-bordered"
           name="coordinates"
         />
-        <button className="uppercase btn">Desenhar</button>
+        <button disabled={isDrawing} className="uppercase btn">
+          Desenhar
+        </button>
       </form>
     </>
   );
