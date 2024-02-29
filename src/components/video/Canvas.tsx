@@ -32,7 +32,7 @@ export const Canvas = () => {
     <CanvasDraw
       className={`absolute z-20 translate-x-1/2 ${
         isDrawing ? "" : "pointer-events-none"
-      } right-1/2 top-5 border-4"`}
+      } right-1/2 w-full h-full"`}
       hideGrid
       hideInterface
       canvasWidth={width}

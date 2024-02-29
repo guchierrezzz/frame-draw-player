@@ -8,7 +8,7 @@ import { ClearDrawingButton } from "../buttons/ClearDrawingButton";
 
 export const PlayerButtons = () => {
   return (
-    <div className="flex flex-wrap items-center justify-center w-5/6 gap-5 mx-auto">
+    <div className="flex flex-wrap items-center justify-center gap-5">
       <StopButton />
       <PlayPauseButton />
       <PlaySpeedButton />

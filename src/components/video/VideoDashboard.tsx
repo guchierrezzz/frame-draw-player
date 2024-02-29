@@ -4,10 +4,10 @@ import { VideoProperties } from "./VideoProperties";
 
 export const VideoDashboard = () => {
   return (
-    <div className="absolute bottom-0 flex flex-col w-full gap-5">
+    <div className="flex flex-col w-full gap-5 ">
+      <VideoProperties />
       <PlayerButtons />
       <CoordinateInput />
-      <VideoProperties />
     </div>
   );
 };

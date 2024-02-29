@@ -11,7 +11,7 @@ export const ColorPickerButton = () => {
     <input
       type="color"
       value={color}
-      disabled={isDrawing}
+      hidden={isDrawing}
       ref={colorInputRef}
       onChange={handleColorChange}
     ></input>
